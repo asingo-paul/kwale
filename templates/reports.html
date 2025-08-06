@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reports - Kwale Feeding Program</title>
+    <style>
+        body{font-family:'Segoe UI',sans-serif;background:#f4f4f4;color:#333;transition:opacity 1s ease-in-out;}
+        header{background:#0288d1;color:#fff;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;}
+        header h1{font-size:1.5rem;animation:fadeInDown 1s ease-in-out;}
+        header nav a{color:#fff;text-decoration:none;margin-left:20px;font-weight:500;transition:color .3s;}
+        header nav a:hover{color:#ffd54f;}
+        .main-content{padding:2rem;animation:fadeIn 1s ease-in-out;}
+        .main-content h1{text-align:center;color:#0288d1;margin-bottom:1.5rem;}
+        .report-actions{max-width:500px;margin:0 auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+        select,button{width:100%;padding:10px;margin-top:10px;border:1px solid #ccc;border-radius:5px;}
+        button{background:#ffd54f;font-weight:bold;border:none;margin-top:20px;border-radius:30px;cursor:pointer;transition:background .3s,transform .2s;}
+        button:hover{background:#ffca28;transform:scale(1.05);}
+        .report-output{margin-top:2rem;text-align:center;font-size:1.1rem;}
+        footer{text-align:center;padding:1rem;background:#333;color:#fff;position:fixed;bottom:0;width:100%;}
+        @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+        @keyframes fadeInDown{from{opacity:0;transform:translateY(-30px);}to{opacity:1;transform:translateY(0);}}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kwale Feeding Program</h1>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="beneficiary.html">Beneficiaries</a>
+            <a href="funds.html">Funds</a>
+            <a href="reports.html" style="color:#ffd54f;">Reports</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1>Reports</h1>
+        <div class="report-actions">
+            <label for="reportType">Select Report Type:</label>
+            <select id="reportType">
+                <option value="beneficiaries">Beneficiary Report</option>
+                <option value="funds">Funds Report</option>
+                <option value="summary">Summary Report</option>
+            </select>
+            <button id="generateBtn">Generate Report</button>
+        </div>
+        <div class="report-output" id="reportOutput"></div>
+    </main>
+
+    <footer><p>&copy; 2025 Kwale Feeding Program</p></footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            document.body.style.opacity=0;
+            setTimeout(()=>{document.body.style.opacity=1;},100);
+
+            document.getElementById('generateBtn').addEventListener('click',()=>{
+                const type=document.getElementById('reportType').value;
+                document.getElementById('reportOutput').innerText=`${type.charAt(0).toUpperCase()+type.slice(1)} generated successfully (placeholder).`;
+            });
+        });
+    </script>
+</body>
+</html>
